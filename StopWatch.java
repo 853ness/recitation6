@@ -25,7 +25,7 @@ public class StopWatch
     }
 
     public void set(long seconds){
-	currentTime = Calendar.getInstance().getTimeInMillis();
+        currentTime = Calendar.getInstance().getTimeInMillis();
         initialTime = currentTime - (seconds*1000);
     }
     
@@ -42,9 +42,23 @@ public class StopWatch
     {
         return currentTime-initialTime;
     }
-
+    
+    private String format(long number){
+        return null;//"0"+number;
+    }
     public String toString()
     {
-        return "I need to implement";
+        long elapsed = elapsedTime();
+        
+        long hours = elapsed / (60*60 * 1000);
+        elapsed = elapsed % (60*60 *1000);
+        
+        long minutes = elapsed / (60* 1000);
+        elapsed = elapsed %(60*1000);
+        
+        long seconds = elapsed / 1000;
+        elapsed = elapsed % 1000;
+        
+        return hours+":"+minutes+":"+seconds;
     }
 }
